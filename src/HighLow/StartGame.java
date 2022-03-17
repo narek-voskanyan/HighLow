@@ -1,10 +1,13 @@
 package HighLow;
 
 import java.util.Collections;
-import java.util.LinkedList;
+import java.util.ArrayList;
 
 public class StartGame {
-    LinkedList<GamingCards> gameCart = CardsValue.getCards();
+    ArrayList<GamingCards> gameCart = CardsValue.getCards();
 
 
+    public void TheGameIsStarting(){
+        Collections.shuffle(gameCart);
+    }
 }

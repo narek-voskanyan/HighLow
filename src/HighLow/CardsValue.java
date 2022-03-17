@@ -1,11 +1,11 @@
 package HighLow;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
 
 
 public class CardsValue {
-    public static LinkedList<GamingCards> getCards(){
-        LinkedList<GamingCards> cards = new LinkedList<>();
+    public static ArrayList<GamingCards> getCards(){
+        ArrayList<GamingCards> cards = new ArrayList<>();
         cards.add(new GamingCards("Diamonds K", 1,1.04 ));
         cards.add(new GamingCards("Diamonds Q", 12.48,1.13 ));
         cards.add(new GamingCards("Diamonds J", 6.24,1.25 ));
