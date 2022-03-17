@@ -33,7 +33,7 @@ public class StartGame {
 
     public void Start(){
         Player user = getInfo();
-        int bitOnCash = 0;
+        double bitOnCash = 0;
         System.out.println("Good day " + user.getName() + " and good luck");
 
 
@@ -41,11 +41,17 @@ public class StartGame {
          while(true){
              Collections.shuffle(gameCart);
              ArrayList<GamingCards> forGame = gameCart;
-             System.out.println("Enter how much you would like to bid on game");
-             bitOnCash = in.nextInt();
-             if(bitOnCash > user.checkCash()){
-                 System.out.println("Sorry, you have not so much, you have only " + user.checkCash());
+             one:
+             while(true) {
+                 System.out.println("Enter how much you would like to bid on game");
+                 bitOnCash = in.nextInt();
+                 if (bitOnCash > user.checkCash()) {
+                     System.out.println("Sorry, you have not so much, you have only " + user.checkCash());
+                     continue one;
+                 }
+                 break;
              }
+
              to:
              while(true) {
                  System.out.println("----------" + forGame.get(forGame.size() - 1).getName() + "----------");
@@ -54,8 +60,26 @@ public class StartGame {
                  answer = answer.toLowerCase();
 
                     if(answer.equals("h")){
-                        if(forGame.get(forGame.size() - 1).getStatus() < forGame.get(forGame.size() - 2).getStatus()){
+                        if(forGame.get(forGame.size() - 1).getStatus()
+                                < forGame.get(forGame.size() - 2).getStatus()){
+                            bitOnCash = bitOnCash * forGame.get(forGame.size() - 1).SetUpCoefficient();
+                            forGame.remove(forGame.size() - 1);
 
+                            System.out.println(bitOnCash);
+                            continue to;
+                        }else {
+                            System.out.println("Sorry you loss ");
+                        }
+                    }else if(answer.equals("l")){
+                        if(forGame.get(forGame.size() - 1).getStatus()
+                                > forGame.get(forGame.size() - 2).getStatus()){
+                            bitOnCash = bitOnCash * forGame.get(forGame.size() - 1).SetDownCoefficient();
+                            forGame.remove(forGame.size() - 1);
+
+                            System.out.println(bitOnCash);
+                            continue to;
+                        }else {
+                            System.out.println("Sorry you loss ");
                         }
                     }
 
