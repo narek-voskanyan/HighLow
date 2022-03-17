@@ -33,7 +33,7 @@ public class StartGame {
 
     public void Start(){
         Player user = getInfo();
-
+        int bitOnCash = 0;
         System.out.println("Good day " + user.getName() + " and good luck");
 
 
@@ -41,12 +41,23 @@ public class StartGame {
          while(true){
              Collections.shuffle(gameCart);
              ArrayList<GamingCards> forGame = gameCart;
-
+             System.out.println("Enter how much you would like to bid on game");
+             bitOnCash = in.nextInt();
+             if(bitOnCash > user.checkCash()){
+                 System.out.println("Sorry, you have not so much, you have only " + user.checkCash());
+             }
+             to:
              while(true) {
-                 System.out.println("----------" + forGame.remove(forGame.size() - 1).getName() + "----------");
+                 System.out.println("----------" + forGame.get(forGame.size() - 1).getName() + "----------");
                  System.out.println("Next cart High put <H> | Next cart Low put <L>");
                  answer = in.next();
                  answer = answer.toLowerCase();
+
+                    if(answer.equals("h")){
+                        if(forGame.get(forGame.size() - 1).getStatus() < forGame.get(forGame.size() - 2).getStatus()){
+
+                        }
+                    }
 
 
              }
