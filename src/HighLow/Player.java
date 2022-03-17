@@ -19,7 +19,9 @@ public class Player {
     public int checkCash(){
         return this.cash;
     }
-
+    public String getName(){
+        return name;
+    }
 
     private final  String name;
     private int age;

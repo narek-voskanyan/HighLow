@@ -1,10 +1,11 @@
 package HighLow;
 
 public class GamingCards {
-    GamingCards(String name, double up, double down ){
+    GamingCards(String name, double up, double down, int status ){
         this.name = name;
         this.up = up;
         this.down = down;
+        this.status = status;
     }
 
     public double SetUpCoefficient(){
@@ -15,7 +16,12 @@ public class GamingCards {
         return down;
     }
 
+    public int getStatus(){
+        return status;
+    }
+
+    private final int status;
     private double up;
     private double down;
-    private String name;
+    private final String name;
 }
