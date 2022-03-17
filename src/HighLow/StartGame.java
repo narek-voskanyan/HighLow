@@ -8,7 +8,7 @@ public class StartGame {
     ArrayList<GamingCards> gameCart = CardsValue.getCards();
     Scanner in = new Scanner(System.in);
 
-    //to create the player object
+    //start to create the player object
     private Player getInfo() {
         //the player name
         System.out.println("Please enter your name");
@@ -29,31 +29,33 @@ public class StartGame {
         //the player object return
         return new Player(name, age, cash);
     }
+    // finish the created the player object
 
     public void Start(){
         Player user = getInfo();
+
+        String answer;
         double bitOnCash = 0;
         System.out.println("Good day " + user.getName() + " and good luck");
 
-
-            String answer;
             start:
          while(true){
              Collections.shuffle(gameCart);
              ArrayList<GamingCards> forGame = gameCart;
-             one:
+
+             //start check the user available to bid or not
              while(true) {
                  System.out.println("Enter how much you would like to bid on game");
                  bitOnCash = in.nextInt();
                  if (bitOnCash > user.checkCash()) {
                      System.out.println("Sorry, you have not so much, you have only " + user.checkCash());
-                     continue one;
+
                  }else{
                      user.minusLossCash(bitOnCash);
+                     break;
                  }
-                 break;
              }
-
+             // finish check the user available to bid or not
              to:
              while(true) {
                  System.out.println("----------" + forGame.get(forGame.size() - 1).getName() + "----------");
