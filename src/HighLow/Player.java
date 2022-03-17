@@ -23,6 +23,13 @@ public class Player {
         return name;
     }
 
+    public void plusWinCash(int outCash){
+        this.cash += outCash;
+    }
+
+    public void minusLossCash(int outCash){
+        this.cash -= outCash;
+    }
     private final  String name;
     private int age;
     private int cash;

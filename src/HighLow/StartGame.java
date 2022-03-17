@@ -59,6 +59,7 @@ public class StartGame {
                  answer = in.next();
                  answer = answer.toLowerCase();
 
+                    // start game
                     if(answer.equals("h")){
                         if(forGame.get(forGame.size() - 1).getStatus()
                                 < forGame.get(forGame.size() - 2).getStatus()){
@@ -69,6 +70,7 @@ public class StartGame {
                             continue to;
                         }else {
                             System.out.println("Sorry you loss ");
+                            System.exit(0);
                         }
                     }else if(answer.equals("l")){
                         if(forGame.get(forGame.size() - 1).getStatus()
@@ -78,10 +80,13 @@ public class StartGame {
 
                             System.out.println(bitOnCash);
                             continue to;
-                        }else {
+                        }else{
                             System.out.println("Sorry you loss ");
+
+                            System.exit(0);
                         }
                     }
+                    // end game
 
 
              }
