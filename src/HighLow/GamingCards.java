@@ -23,7 +23,7 @@ public class GamingCards {
         return this.name;
     }
     private final int status;
-    private double up;
-    private double down;
+    private final double up;
+    private final double down;
     private final String name;
 }

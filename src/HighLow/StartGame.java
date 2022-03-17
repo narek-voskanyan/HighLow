@@ -35,9 +35,10 @@ public class StartGame {
         Player user = getInfo();
 
         String answer;
-        double bitOnCash = 0;
+        double bitOnCash;
         System.out.println("Good day " + user.getName() + " and good luck");
 
+            //new game start
             start:
          while(true){
              Collections.shuffle(gameCart);
@@ -57,6 +58,7 @@ public class StartGame {
              }
              // finish check the user available to bid or not
 
+             // start playing
              while(true) {
                  System.out.println("----------" + forGame.get(forGame.size() - 1).getName() + "----------");
                  System.out.println("Next cart High Press <H> | Next cart Low Press <L> \n " +
@@ -64,62 +66,66 @@ public class StartGame {
                  answer = in.next();
                  answer = answer.toLowerCase();
 
-                    // start game
-                    if(answer.equals("h")){
-                        if(forGame.get(forGame.size() - 1).getStatus()
-                                < forGame.get(forGame.size() - 2).getStatus()){
-                            bitOnCash = bitOnCash * forGame.get(forGame.size() - 1).SetUpCoefficient();
-                            forGame.remove(forGame.size() - 1);
 
-                            System.out.println(bitOnCash);
+                 switch (answer) {
+                     case "h":
+                         if (forGame.get(forGame.size() - 1).getStatus()
+                                 < forGame.get(forGame.size() - 2).getStatus()) {
+                             bitOnCash = bitOnCash * forGame.get(forGame.size() - 1).SetUpCoefficient();
+                             forGame.remove(forGame.size() - 1);
 
-                        }else {
-                            user.checkUserStatus();
-                            System.out.println("Sorry you loss  you have " + user.checkCash() + "$ \n " +
-                                    "would you like to play again? YES <Y> | NO: press the another letter");
-                            String a = in.next();
-                            a = a.toLowerCase();
-                            if(a.equals("y")){
-                                System.out.println("---------- NEW GAME ----------");
-                                continue start;
-                            }else{
-                                System.out.println("Have a nice day");
-                                System.exit(0);
-                            }
-                        }
-                    }else if(answer.equals("l")){
-                        if(forGame.get(forGame.size() - 1).getStatus()
-                                > forGame.get(forGame.size() - 2).getStatus()){
-                            bitOnCash = bitOnCash * forGame.get(forGame.size() - 1).SetDownCoefficient();
-                            forGame.remove(forGame.size() - 1);
+                             System.out.println(bitOnCash);
 
-                            System.out.println(bitOnCash);
+                         } else {
+                             user.checkUserStatus();
+                             System.out.println("Sorry you loss  you have " + user.checkCash() + "$ \n " +
+                                     "would you like to play again? YES <Y> | NO: press the another letter");
+                             String a = in.next();
+                             a = a.toLowerCase();
+                             if (a.equals("y")) {
+                                 System.out.println("---------- NEW GAME ----------");
+                                 continue start;
+                             } else {
+                                 System.out.println("Have a nice day");
+                                 System.exit(0);
+                             }
+                         }
+                         break;
+                     case "l":
+                         if (forGame.get(forGame.size() - 1).getStatus()
+                                 > forGame.get(forGame.size() - 2).getStatus()) {
+                             bitOnCash = bitOnCash * forGame.get(forGame.size() - 1).SetDownCoefficient();
+                             forGame.remove(forGame.size() - 1);
 
-                        }else{
-                            user.checkUserStatus();
-                            System.out.println("Sorry you loss  you have " + user.checkCash() + "$ \n " +
-                                    "would you like to play again? YES <Y> | NO: press the another letter");
-                            String a = in.next();
-                            a = a.toLowerCase();
-                            if(a.equals("y")){
-                                System.out.println("---------- NEW GAME ----------");
-                                continue start;
-                            }else{
-                                System.out.println("Have a nice day");
-                                System.exit(0);
-                            }
-                        }
-                        //Finish Game
-                    }else if(answer.equals("f")) {
-                        user.plusWinCash(bitOnCash);
-                        System.out.println("Thank you for game," +
-                                " you go out from game with  " + user.checkCash() + " $");
-                        System.exit(0);
-                        // end game
-                    }
+                             System.out.println(bitOnCash);
+
+                         } else {
+                             user.checkUserStatus();
+                             System.out.println("Sorry you loss  you have " + user.checkCash() + "$ \n " +
+                                     "would you like to play again? YES <Y> | NO: press the another letter");
+                             String a = in.next();
+                             a = a.toLowerCase();
+                             if (a.equals("y")) {
+                                 System.out.println("---------- NEW GAME ----------");
+                                 continue start;
+                             } else {
+                                 System.out.println("Have a nice day");
+                                 System.exit(0);
+                             }
+                         }
+
+                         break;
+                     case "f":
+                         user.plusWinCash(bitOnCash);
+                         System.out.println("Thank you for game," +
+                                 " you go out from game with  " + user.checkCash() + " $");
+                         System.exit(0);
+                         // end game
+                 }
 
              }
+             //Finish playing
          }
-
+        // new game finish
     }
 }

@@ -31,6 +31,6 @@ public class Player {
         this.cash -= (int) outCash;
     }
     private final  String name;
-    private int age;
     private int cash;
+    private final int age;
 }
