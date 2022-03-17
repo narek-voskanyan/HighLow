@@ -56,7 +56,7 @@ public class StartGame {
                  }
              }
              // finish check the user available to bid or not
-             to:
+
              while(true) {
                  System.out.println("----------" + forGame.get(forGame.size() - 1).getName() + "----------");
                  System.out.println("Next cart High Press <H> | Next cart Low Press <L> \n " +
@@ -72,7 +72,7 @@ public class StartGame {
                             forGame.remove(forGame.size() - 1);
 
                             System.out.println(bitOnCash);
-                            continue to;
+
                         }else {
                             user.checkUserStatus();
                             System.out.println("Sorry you loss  you have " + user.checkCash() + "$ \n " +
@@ -94,7 +94,7 @@ public class StartGame {
                             forGame.remove(forGame.size() - 1);
 
                             System.out.println(bitOnCash);
-                            continue to;
+
                         }else{
                             user.checkUserStatus();
                             System.out.println("Sorry you loss  you have " + user.checkCash() + "$ \n " +
