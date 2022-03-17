@@ -2,7 +2,6 @@ package HighLow;
 
 import java.util.Collections;
 import java.util.ArrayList;
-import java.util.Locale;
 import java.util.Scanner;
 
 public class StartGame {
