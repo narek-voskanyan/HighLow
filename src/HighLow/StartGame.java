@@ -2,6 +2,7 @@ package HighLow;
 
 import java.util.Collections;
 import java.util.ArrayList;
+import java.util.Locale;
 import java.util.Scanner;
 
 public class StartGame {
@@ -35,6 +36,21 @@ public class StartGame {
 
         System.out.println("Good day " + user.getName() + " and good luck");
 
+
+            String answer;
+         while(true){
+             Collections.shuffle(gameCart);
+             ArrayList<GamingCards> forGame = gameCart;
+
+             while(true) {
+                 System.out.println("----------" + forGame.remove(forGame.size() - 1).getName() + "----------");
+                 System.out.println("Next cart High put <H> | Next cart Low put <L>");
+                 answer = in.next();
+                 answer = answer.toLowerCase();
+
+
+             }
+         }
 
     }
 }

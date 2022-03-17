@@ -19,7 +19,9 @@ public class GamingCards {
     public int getStatus(){
         return status;
     }
-
+    public String getName(){
+        return this.name;
+    }
     private final int status;
     private double up;
     private double down;
