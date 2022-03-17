@@ -38,6 +38,7 @@ public class StartGame {
 
 
             String answer;
+            start:
          while(true){
              Collections.shuffle(gameCart);
              ArrayList<GamingCards> forGame = gameCart;
@@ -48,6 +49,8 @@ public class StartGame {
                  if (bitOnCash > user.checkCash()) {
                      System.out.println("Sorry, you have not so much, you have only " + user.checkCash());
                      continue one;
+                 }else{
+                     user.minusLossCash(bitOnCash);
                  }
                  break;
              }
@@ -55,7 +58,8 @@ public class StartGame {
              to:
              while(true) {
                  System.out.println("----------" + forGame.get(forGame.size() - 1).getName() + "----------");
-                 System.out.println("Next cart High put <H> | Next cart Low put <L>");
+                 System.out.println("Next cart High Press <H> | Next cart Low Press <L> \n " +
+                         "If you want to finish game Press <F>" );
                  answer = in.next();
                  answer = answer.toLowerCase();
 
@@ -69,8 +73,18 @@ public class StartGame {
                             System.out.println(bitOnCash);
                             continue to;
                         }else {
-                            System.out.println("Sorry you loss ");
-                            System.exit(0);
+                            user.checkUserStatus();
+                            System.out.println("Sorry you loss  you have " + user.checkCash() + "$ \n " +
+                                    "would you like to play again? YES <Y> | NO: press the another letter");
+                            String a = in.next();
+                            a = a.toLowerCase();
+                            if(a.equals("y")){
+                                System.out.println("---------- NEW GAME ----------");
+                                continue start;
+                            }else{
+                                System.out.println("Have a nice day");
+                                System.exit(0);
+                            }
                         }
                     }else if(answer.equals("l")){
                         if(forGame.get(forGame.size() - 1).getStatus()
@@ -81,13 +95,27 @@ public class StartGame {
                             System.out.println(bitOnCash);
                             continue to;
                         }else{
-                            System.out.println("Sorry you loss ");
-
-                            System.exit(0);
+                            user.checkUserStatus();
+                            System.out.println("Sorry you loss  you have " + user.checkCash() + "$ \n " +
+                                    "would you like to play again? YES <Y> | NO: press the another letter");
+                            String a = in.next();
+                            a = a.toLowerCase();
+                            if(a.equals("y")){
+                                System.out.println("---------- NEW GAME ----------");
+                                continue start;
+                            }else{
+                                System.out.println("Have a nice day");
+                                System.exit(0);
+                            }
                         }
+                        //Finish Game
+                    }else if(answer.equals("f")) {
+                        user.plusWinCash(bitOnCash);
+                        System.out.println("Thank you for game," +
+                                " you go out from game with  " + user.checkCash() + " $");
+                        System.exit(0);
+                        // end game
                     }
-                    // end game
-
 
              }
          }

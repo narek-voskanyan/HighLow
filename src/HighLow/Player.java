@@ -10,7 +10,7 @@ public class Player {
     // Check user status
     public void checkUserStatus(){
         if(this.cash == 0){
-            System.out.println("You lost all your money");
+            System.out.println("Sorry, but you lost all your money");
             System.exit(0);
         }
     }
@@ -23,12 +23,12 @@ public class Player {
         return name;
     }
 
-    public void plusWinCash(int outCash){
-        this.cash += outCash;
+    public void plusWinCash(double outCash){
+        this.cash += (int) outCash;
     }
 
-    public void minusLossCash(int outCash){
-        this.cash -= outCash;
+    public void minusLossCash(double outCash){
+        this.cash -= (int) outCash;
     }
     private final  String name;
     private int age;
