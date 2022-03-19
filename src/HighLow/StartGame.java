@@ -69,6 +69,14 @@ public class StartGame {
 
                  switch (answer) {
                      case "h":
+                         // start: if the cards are same
+                         if(forGame.get(forGame.size() - 1).getStatus()
+                                 == forGame.get(forGame.size() - 2).getStatus()){
+                             forGame.remove(forGame.size() - 1);
+                             System.out.println("the playing cards are same each other");
+                             continue;
+                         }
+                            // end if the cards are same
                          if (forGame.get(forGame.size() - 1).getStatus()
                                  < forGame.get(forGame.size() - 2).getStatus()) {
                              bitOnCash = bitOnCash * forGame.get(forGame.size() - 1).SetUpCoefficient();
@@ -92,6 +100,15 @@ public class StartGame {
                          }
                          break;
                      case "l":
+                         // start: if the cards are same
+                         if(forGame.get(forGame.size() - 1).getStatus()
+                                 == forGame.get(forGame.size() - 2).getStatus()){
+                             forGame.remove(forGame.size() - 1);
+                             System.out.println("The playing cards are same each other");
+                             continue;
+                         }
+                         // end if the cards are same
+
                          if (forGame.get(forGame.size() - 1).getStatus()
                                  > forGame.get(forGame.size() - 2).getStatus()) {
                              bitOnCash = bitOnCash * forGame.get(forGame.size() - 1).SetDownCoefficient();
