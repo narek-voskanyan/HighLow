@@ -71,7 +71,6 @@ public class StartGame {
                  }
 
                  System.out.println("---------- " + forGame.get(forGame.size() - 1).getName() + " ----------");
-                 System.out.println("----------> " + forGame.get(forGame.size() - 2).getName() + " --> " + forGame.size() );
 
                  System.out.println("Next cart High press <H> | Next cart Low press <L> \n " +
                          "If you want to finish game press <F> | If you want cash out press <C>" );
