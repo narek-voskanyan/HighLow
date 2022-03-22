@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class StartGame {
-    ArrayList<GamingCards> gameCart = CardsValue.getCards();
+
     Scanner in = new Scanner(System.in);
 
     //start to create the player object
@@ -31,6 +31,7 @@ public class StartGame {
     }
     // finish the created the player object
 
+
     public void Start(){
         Player user = getInfo();
 
@@ -38,11 +39,13 @@ public class StartGame {
         double bitOnCash;
         System.out.println("Good day " + user.getName() + " and good luck");
 
-            //new game start
+        //new game start
             start:
          while(true){
-             Collections.shuffle(gameCart);
-             ArrayList<GamingCards> forGame = gameCart;
+
+             ArrayList<GamingCards> forGame = CardsValue.getCards();
+             Collections.shuffle(forGame);
+
 
              //start check the user available to bid or not
              while(true) {
@@ -60,7 +63,16 @@ public class StartGame {
 
              // start playing
              while(true) {
-                 System.out.println("----------" + forGame.get(forGame.size() - 1).getName() + "----------");
+
+                 if(forGame.size() == 1){
+                     user.plusWinCash(bitOnCash);
+                     System.out.println("The cards were over, you have  " + user.checkCash() + " $");
+                     continue start;
+                 }
+
+                 System.out.println("---------- " + forGame.get(forGame.size() - 1).getName() + " ----------");
+                 System.out.println("----------> " + forGame.get(forGame.size() - 2).getName() + " --> " + forGame.size() );
+
                  System.out.println("Next cart High press <H> | Next cart Low press <L> \n " +
                          "If you want to finish game press <F> | If you want cash out press <C>" );
                  answer = in.next();

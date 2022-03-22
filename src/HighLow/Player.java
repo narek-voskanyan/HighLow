@@ -16,7 +16,7 @@ public class Player {
     }
 
     //to check the user available to bid so much cash
-    public int checkCash(){
+    public long checkCash(){
         return this.cash;
     }
     public String getName(){
@@ -31,6 +31,6 @@ public class Player {
         this.cash -= (int) outCash;
     }
     private final  String name;
-    private int cash;
+    private long cash;
     private final int age;
 }
